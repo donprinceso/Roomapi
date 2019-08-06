@@ -19,6 +19,7 @@ class RoomserviceResource extends Resource
         return [
             'room_no'=>$this->room_no,
             'size'=>$this->size,
+            'category'=>$this->category,
             'price'=>$this->price
         ];
     }

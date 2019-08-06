@@ -32,6 +32,7 @@ return array(
     'App\\Http\\Resources\\API\\Rooms\\RoomserviceCollection' => $baseDir . '/app/Http/Resources/API/Rooms/RoomserviceCollection.php',
     'App\\Http\\Resources\\API\\Rooms\\RoomserviceResource' => $baseDir . '/app/Http/Resources/API/Rooms/RoomserviceResource.php',
     'App\\Http\\Resources\\API\\Staff\\StaffResource' => $baseDir . '/app/Http/Resources/API/Staff/StaffResource.php',
+    'App\\Model\\Categories' => $baseDir . '/app/Model/Categories.php',
     'App\\Model\\Eventcentan' => $baseDir . '/app/Model/Eventcentan.php',
     'App\\Model\\Reservation' => $baseDir . '/app/Model/Reservation.php',
     'App\\Model\\Roomservice' => $baseDir . '/app/Model/Roomservice.php',

@@ -15,8 +15,14 @@ class CreateReservationsTable extends Migration
     {
         Schema::create('reservations', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('room_no')-index();
-            
+            $table->integer('staff_id')->unsigned()->index();
+            $table->integer('room_no')->unsigned();
+            $table->string('name');
+            $table->bigInteger('phone')->unsigned();
+            $table->integer('duration');
+            $table->timestamp('check_in')->nullable();
+            $table->timestamp('check_out')->nullable();
+            $table->integer('price');
             $table->timestamps();
         });
     }

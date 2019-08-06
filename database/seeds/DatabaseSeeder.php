@@ -2,7 +2,9 @@
 
 use App\User;
 use App\Model\Staff;
+use App\Model\Categories;
 use App\Model\Eventcentan;
+use App\Model\Reservation;
 use App\Model\Roomservice;
 use Illuminate\Database\Seeder;
 
@@ -16,8 +18,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
        // factory(User::class,5)->create();
+       factory(Categories::class,5)->create();
        factory(Roomservice::class,30)->create();
        factory(Eventcentan::class,5)->create();
        factory(Staff::class,10)->create();
+       factory(Reservation::class,10)->create();
     }
 }

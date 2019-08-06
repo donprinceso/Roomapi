@@ -386,6 +386,7 @@ class ComposerStaticInitb8f471b063a5061a2f315d70069f8d10
         'App\\Http\\Resources\\API\\Rooms\\RoomserviceCollection' => __DIR__ . '/../..' . '/app/Http/Resources/API/Rooms/RoomserviceCollection.php',
         'App\\Http\\Resources\\API\\Rooms\\RoomserviceResource' => __DIR__ . '/../..' . '/app/Http/Resources/API/Rooms/RoomserviceResource.php',
         'App\\Http\\Resources\\API\\Staff\\StaffResource' => __DIR__ . '/../..' . '/app/Http/Resources/API/Staff/StaffResource.php',
+        'App\\Model\\Categories' => __DIR__ . '/../..' . '/app/Model/Categories.php',
         'App\\Model\\Eventcentan' => __DIR__ . '/../..' . '/app/Model/Eventcentan.php',
         'App\\Model\\Reservation' => __DIR__ . '/../..' . '/app/Model/Reservation.php',
         'App\\Model\\Roomservice' => __DIR__ . '/../..' . '/app/Model/Roomservice.php',

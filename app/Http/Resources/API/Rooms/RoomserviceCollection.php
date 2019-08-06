@@ -17,6 +17,7 @@ class RoomserviceCollection extends Resource
     {
         return [
             'room_no'=>$this->room_no,
+            'category'=>$this->category,
             'price'=>$this->price,
             'href'=>[
                 'link'=>route('rooms.show',$this->id)
