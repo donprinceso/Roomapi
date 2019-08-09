@@ -6,8 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Staff extends Model
 {
-   public function roomservice()
+    protected $fillable = ['name','password'];
+
+   public function reservation()
    {
-       return $this->hasMany('App\Model\Roomservice', 'staff_id');
+       return $this->hasMany('App\Model\Reservation', 'staff_id');
    }
 }

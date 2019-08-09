@@ -13,6 +13,13 @@ use App\Http\Resources\API\Rooms\RoomserviceCollection;
 class RoomserviceController extends Controller
 {
     /**
+     * authrise the user
+     */
+    public function __construct() {
+        $this->middleware('auth:api')->except('index','show');
+    }
+    
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -33,6 +40,7 @@ class RoomserviceController extends Controller
         $room = new Roomservice;
         $room->room_no=$request->room_no;
         $room->size=$request->size;
+        $room->category=$request->category;
         $room->price=$request->price;
         $room->save();
         return response([

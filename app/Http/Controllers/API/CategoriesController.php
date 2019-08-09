@@ -2,23 +2,18 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Model\Eventcentan;
+use App\Model\Categories;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\API\EventcentanRequest;
+use App\Http\Requests\API\CategoriesRequest;
 use Symfony\Component\HttpFoundation\Response;
-use App\Http\Resources\API\Events\EventcentanResource;
-use App\Http\Resources\API\Events\EventcentanCollection;
+use App\Http\Resources\API\Category\CategoriesResource;
 
-class EventcentanController extends Controller
+class CategoriesController extends Controller
 {
-    /**
-     * authrise the user
-     */
     public function __construct() {
         $this->middleware('auth:api')->except('index','show');
     }
-
     /**
      * Display a listing of the resource.
      *
@@ -26,7 +21,7 @@ class EventcentanController extends Controller
      */
     public function index()
     {
-       return  EventcentanCollection::collection(Eventcentan::paginate(5));
+        return new CategoriesResource(Categories::paginate(10));
     }
 
     /**
@@ -35,16 +30,13 @@ class EventcentanController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(EventcentanRequest $request)
+    public function store(CategoriesRequest $request)
     {
-        $event = new Eventcentan;
-        $event->hall_no=$request->room_no;
-        $event->size=$request->size;
-        $event->capacity=$request->capacity;
-        $event->price=$request->price;
-        $event->save();
+        $category= new Categories();
+        $category->name=$request->name;
+        $category->save();
         return response([
-            'data' => new EventcentanResource($event)
+            "data"=> new CategoriesResource($category)
         ],Response::HTTP_CREATED);
     }
 
@@ -56,7 +48,7 @@ class EventcentanController extends Controller
      */
     public function show($id)
     {
-        return new EventcentanResource(Eventcentan::find($id));
+        return new CategoriesResource(Categories::find($id));
     }
 
     /**
@@ -66,11 +58,11 @@ class EventcentanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,Eventcentan $event)
+    public function update(CategoriesRequest $request,Categories $category)
     {
-       $event->update($request->all());
+        $category->update($request->all());
         return response([
-            'data'=> new EventcentanResource($event)
+            'data'=> new CategoriesResource($category)
         ],Response::HTTP_CREATED);
     }
 
@@ -80,9 +72,9 @@ class EventcentanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Eventcentan $event)
+    public function destroy(Categories $category)
     {
-        $event->delete();
+        $category->delete();
         return response(null,Response::HTTP_NO_CONTENT);
     }
 }

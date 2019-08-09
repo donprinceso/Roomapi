@@ -13,7 +13,7 @@ class EventcentanRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,9 @@ class EventcentanRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'hall_no'=>'required|min:1|max:10|unique:eventcentan',
+            'size'=>'required|min:3',
+            'price'=>'required|min:3|max:10'
         ];
     }
 }
