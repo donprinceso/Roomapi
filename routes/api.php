@@ -20,7 +20,10 @@ Route::apiResource('/staffs','API\StaffController');
 Route::apiResource('/rooms','API\RoomserviceController');
 Route::apiResource('/events','API\EventcentanController');
 Route::apiResource('/categorys','API\CategoriesController');
-Route::apiResource('/reservations','API\ReservationController');
+Route::group(['prefix' => 'staffs'], function () {
+    Route::apiResource('/{staff}/reservations','API\ReservationController');
+});
+Route::get('/reservations/{reservation}','API\ReservationController@show');
 
 
 

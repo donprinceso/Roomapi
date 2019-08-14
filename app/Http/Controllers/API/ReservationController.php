@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Model\Staff;
 use App\Model\Reservation;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -15,11 +16,14 @@ class ReservationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return ReservationCollection::collection(Reservation::all());
+    public function index(Staff $staff)
+    {//return $staff->reservations;
+        return ReservationResource::collection($staff->reservations);
     }
-
+    public function All(Staff $staff)
+    {//return $staff->reservations;
+        return ReservationCollection::collection($staff->paginate(10));
+    }
     /**
      * Store a newly created resource in storage.
      *

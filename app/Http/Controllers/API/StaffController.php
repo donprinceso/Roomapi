@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\API\StaffRequest;
 use Symfony\Component\HttpFoundation\Response;
 use App\Http\Resources\API\Staff\StaffResource;
+use App\Http\Resources\API\Staff\StaffCollection;
 
 class StaffController extends Controller
 {
@@ -26,7 +27,7 @@ class StaffController extends Controller
      */
     public function index()
     {
-        return new StaffResource(Staff::paginate(5));
+        return StaffCollection::Collection(Staff::paginate(5));
     }
 
     /**

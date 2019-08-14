@@ -2,12 +2,14 @@
 
 namespace App\Http\Resources\API\Staff;
 
-use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Http\Resources\Json\Resource;
+use App\Http\Resources\API\Staff\StaffCollection;
+use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class StaffResource extends JsonResource
+class StaffCollection extends Resource
 {
     /**
-     * Transform the resource into an array.
+     * Transform the resource collection into an array.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return array
@@ -15,11 +17,10 @@ class StaffResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'id'=>$this->id,
             'name'=>$this->name,
             'password'=>$this->password,
             'href'=>[
-                'link'=> route('reservations.index',$this->id)
+                'link'=>route('staffs.show',$this->id)
             ]
         ];
     }

@@ -15,9 +15,7 @@ class ReservationResource extends Resource
      */
     public function toArray($request)
     {
-        static $total;
-        $total=dateTime('d','m','y');
-
+        
         return [
             'room_no'=>$this->room_no,
             'name'=>$this->name,
@@ -26,7 +24,7 @@ class ReservationResource extends Resource
             'duration'=>$this->duration,
             'check_in'=>$this->check_in,
             'check_out'=>$this->check_out,
-            'total_price'=>$this->price * $this->duration
+            'total_price'=>$this->price * $this->duration,
         ];
     }
 }

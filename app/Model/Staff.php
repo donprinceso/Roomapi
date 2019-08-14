@@ -2,14 +2,15 @@
 
 namespace App\Model;
 
+use App\Model\Reservation;
 use Illuminate\Database\Eloquent\Model;
 
 class Staff extends Model
 {
     protected $fillable = ['name','password'];
 
-   public function reservation()
+   public function reservations()
    {
-       return $this->hasMany('App\Model\Reservation', 'staff_id');
+       return $this->hasMany(Reservation::class);
    }
 }
